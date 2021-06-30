@@ -11,7 +11,7 @@ package leerArchivo;
  */
 import java.io.*;
 public class LeerArchivo {
-        public String[] leer(File archivo){
+        private String[] leer(File archivo){
             int lineasTotales=0;
         try{
             if(archivo.exists()){
