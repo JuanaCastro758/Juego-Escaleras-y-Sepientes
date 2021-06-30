@@ -26,7 +26,12 @@ public class SeleccionarJugador extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         listar=new DefaultListModel();
         listaMostrar.setModel(listar);
-        }
+        IngresoDatos dato=new IngresoDatos();
+        jugador[0]=new Jugador(1,dato.nombre1,dato.apellido1);
+        jugador[1]=new Jugador(2,dato.nombre2,dato.apellido2);
+        jugador[2]=new Jugador(3,dato.nombre3,dato.apellido3);
+        jugador[3]=new Jugador(4,dato.nombre4,dato.apellido4);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
