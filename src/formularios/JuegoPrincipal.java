@@ -35,6 +35,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         txtjugador1.setText("Turno del primer Jugador");
         txtjugador2.setText("Turno del segundo Jugador");
         setLeer();
+        setMatriz();
     }
     private void setLeer(){
         File archivo =new File ("posicion.txt");
@@ -51,6 +52,68 @@ public class JuegoPrincipal extends javax.swing.JFrame {
             }
         }
     }
+    private void setMatriz(){
+        CUADRO=new JButton[FILS][COLS];
+        int x=10;
+        int y=10;
+        for(int i=0;i<FILS;i++){
+            for(int j=0;j<COLS;j++){
+                if(juego[i][j].equals("fin")){
+                    boton(CUADRO,i,j,x,y,Color.red);
+                    CUADRO[i][j].setName("fin");
+                }else if(juego[i][j].equals("libre")){
+                    boton(CUADRO,i,j,x,y,Color.green );
+                    CUADRO[i][j].setName("libre");
+                }else if(juego[i][j].equals("tiro")){
+                    boton(CUADRO,i,j,x,y,Color.white);
+                    CUADRO[i][j].setName("tiro");
+                }else if(juego[i][j].equals("pierde")){
+                    boton(CUADRO,i,j,x,y,Color.black);
+                    CUADRO[i][j].setName("pierde");
+                }else if(juego[i][j].equals("pierde")){
+                    boton(CUADRO,i,j,x,y,Color.black);
+                }else if(juego[i][j].equals("s4inicio")||juego[i][j].equals("s3inicio")||juego[i][j].equals("s2inicio")||juego[i][j].equals("s1inicio")||juego[i][j].equals("s4fin")||juego[i][j].equals("s3fin")||juego[i][j].equals("s2fin")||juego[i][j].equals("s1fin")){
+                    boton(CUADRO,i,j,x,y,Color.blue);
+                    //inicio de la cabeza
+                    if(juego[i][j].equals("s4inicio")){CUADRO[i][j].setName("s4inicio");}
+                    if(juego[i][j].equals("s3inicio")){CUADRO[i][j].setName("s3inicio");}
+                    if(juego[i][j].equals("s2inicio")){CUADRO[i][j].setName("s2inicio");}
+                    if(juego[i][j].equals("s1inicio")){CUADRO[i][j].setName("s1inicio");}
+                    //fin de la cola
+                    if(juego[i][j].equals("s4fin")){CUADRO[i][j].setName("s4fin");}
+                    if(juego[i][j].equals("s3fin")){CUADRO[i][j].setName("s3fin");}
+                    if(juego[i][j].equals("s2fin")){CUADRO[i][j].setName("s2fin");}
+                    if(juego[i][j].equals("s1fin")){CUADRO[i][j].setName("s1fin");}
+                }else if(juego[i][j].equals("inicio")){
+                    boton(CUADRO,i,j,x,y,Color.yellow );
+                    CUADRO[i][j].setName("inicio");
+                }else{
+                    boton(CUADRO,i,j,x,y,Color.cyan );
+                    //inicio de la cabeza
+                    if(juego[i][j].equals("e4inicio")){CUADRO[i][j].setName("e4inicio");}
+                    if(juego[i][j].equals("e3inicio")){CUADRO[i][j].setName("e3inicio");}
+                    if(juego[i][j].equals("e2inicio")){CUADRO[i][j].setName("e2inicio");}
+                    if(juego[i][j].equals("e1inicio")){CUADRO[i][j].setName("e1inicio");}
+                    //fin de la cola
+                    if(juego[i][j].equals("e4fin")){CUADRO[i][j].setName("e4fin");}
+                    if(juego[i][j].equals("e3fin")){CUADRO[i][j].setName("e3fin");}
+                    if(juego[i][j].equals("e2fin")){CUADRO[i][j].setName("e2fin");}
+                    if(juego[i][j].equals("e1fin")){CUADRO[i][j].setName("e1fin");}
+                }
+                x+=40;
+            }
+            x=10;
+            y+=40;
+        }
+    }
+    private void boton(JButton[][] C,int i,int j,int x,int y, Color c){
+        C[i][j]=new JButton();
+        C[i][j].setBackground(c);
+        C[i][j].setBounds(x, y, 40, 40);
+                
+        jPanel1.add(C[i][j]);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
