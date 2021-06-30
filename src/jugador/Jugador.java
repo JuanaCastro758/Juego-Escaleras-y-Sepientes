@@ -24,6 +24,8 @@ public class Jugador {
         this.partidasGanadas=0;
         this.partidasPerdidas=0;
     }
+    public Jugador() {
+    }
     public int getId() {
         return id;
     }
@@ -58,6 +60,10 @@ public class Jugador {
         Random random=new Random();
         int x=random.nextInt(f-i+1)+i;
         return x;
+    }
+    @Override
+    public String toString() {
+        return "--id:" + id + "    nombre:" + nombre + "    apellido:" + apellido + "    partidasGanadas:" + partidasGanadas + "    partidasPerdidas:" + partidasPerdidas;
     }
     
 }
