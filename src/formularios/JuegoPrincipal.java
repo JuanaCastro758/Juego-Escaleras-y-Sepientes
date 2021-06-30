@@ -193,7 +193,16 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          
         try{
+            Random random=new Random();
+            int x=random.nextInt(6-1+1)+1;
+            jTextField2.setText(""+x);
+            //jTextField1.setText(""+CUADRO[contadorf][contadorc].getName());
             
+            actualizarPosicionJugador1(x);
+            verificarEscalera1();
+            verificarSerpiente1();
+            mensaje1();
+            recuperarColor();
             verificar(contadorf,contadorc,Color.pink);
             verificar(contadorf2,contadorc2,Color.ORANGE);
             dos1.setText(""+CUADRO[contadorf][contadorc].getName());
@@ -205,7 +214,15 @@ public class JuegoPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
-            
+            Random random=new Random();
+            int x=random.nextInt(6-1+1)+1;
+            jTextField2.setText(""+x);
+            //jTextField1.setText(""+CUADRO[contadorf][contadorc].getName());
+            actualizarPosicionJugador2(x);
+            verificarEscalera2();
+            verificarSerpiente1();
+            mensaje2();
+            recuperarColor();
             verificar(contadorf2,contadorc2,Color.ORANGE);
             verificar(contadorf,contadorc,Color.pink);
             dos.setText(""+CUADRO[contadorf2][contadorc2].getName());
@@ -213,7 +230,160 @@ public class JuegoPrincipal extends javax.swing.JFrame {
             System.out.println(e.getMessage()+"Error en el boton o ya no hay espacio");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-     
+       
+    public void mensaje2(){
+        if(juego[contadorf2][contadorc2].equals("tiro")){
+            JOptionPane.showMessageDialog(panelBotones, "Tire nuevamente los dados");
+        }else if(juego[contadorf2][contadorc2].equals("pierde")){
+            JOptionPane.showMessageDialog(panelBotones, "A perdidio un turno");
+        }
+    }
+    public void mensaje1(){
+        if(juego[contadorf][contadorc].equals("tiro")){
+            JOptionPane.showMessageDialog(panelBotones, "Tire nuevamente los dados");
+        }else if(juego[contadorf][contadorc].equals("pierde")){
+            JOptionPane.showMessageDialog(panelBotones, "A perdidio un turno");
+        }
+    }
+    public void verificarEscalera1(){
+        if(juego[contadorf][contadorc].equals("e4fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera1("e4inicio");
+        }else if(juego[contadorf][contadorc].equals("e3fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera1("e3inicio");
+        }else if(juego[contadorf][contadorc].equals("e2fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera1("e2inicio");
+        }else if(juego[contadorf][contadorc].equals("e1fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera1("e1inicio");
+        }
+    }
+    public void escalera1(String buscado){
+        boolean res=false;
+        do{
+            pos1();
+            if(juego[contadorf][contadorc].equals(buscado)){ res=true; }
+        }while(res==false);
+    }
+   public void verificarEscalera2(){
+        if(juego[contadorf2][contadorc2].equals("e4fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera2("e4inicio");
+        }else if(juego[contadorf2][contadorc2].equals("e3fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera2("e3inicio");
+        }else if(juego[contadorf2][contadorc2].equals("e2fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera2("e2inicio");
+        }else if(juego[contadorf2][contadorc2].equals("e1fin")){
+            JOptionPane.showMessageDialog(panelBotones, "Felicidades a caido en la Escalera");
+            escalera2("e1inicio");
+        }
+    }
+    public void escalera2(String buscado){
+        boolean res=false;
+        do{
+            pos2();
+            if(juego[contadorf2][contadorc2].equals(buscado)){ res=true; }
+        }while(res==false);
+        
+    }
+    public void verificarSerpiente1(){
+        if(juego[contadorf][contadorc].equals("s4fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf=0;
+            contadorc=0;
+            serpiente1("s4inicio");
+        }else if(juego[contadorf][contadorc].equals("s3fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf=0;
+            contadorc=0;
+            serpiente1("s3inicio");
+        }else if(juego[contadorf][contadorc].equals("s2fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf=0;
+            contadorc=0;
+            serpiente1("s2inicio");
+        }else if(juego[contadorf][contadorc].equals("s1fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf=0;
+            contadorc=0;
+            serpiente1("s1inicio");
+        }
+    }
+    public void serpiente1(String buscado){
+        boolean res=false;
+        do{
+            pos1();
+            if(juego[contadorf][contadorc].equals(buscado)){ res=true; }
+        }while(res==false);
+        dos1.setText(""+CUADRO[contadorf][contadorc].getName());
+    }
+   public void verificarSepiente2(){
+        if(juego[contadorf2][contadorc2].equals("s4fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf2=0;
+            contadorc2=0;
+            sepiente2("s4inicio");
+        }else if(juego[contadorf2][contadorc2].equals("s3fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf2=0;
+            contadorc2=0;
+            sepiente2("s3inicio");
+        }else if(juego[contadorf2][contadorc2].equals("s2fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf2=0;
+            contadorc2=0;
+            sepiente2("s2inicio");
+        }else if(juego[contadorf2][contadorc2].equals("s1fin")){
+            JOptionPane.showMessageDialog(panelBotones, "O no le ha caido en la boca de la Serpiente");
+            contadorf2=0;
+            contadorc2=0;
+            sepiente2("s1inicio");
+        }
+    }
+    public void sepiente2(String buscado){
+        boolean res=false;
+        do{
+            pos2();
+            if(juego[contadorf2][contadorc2].equals(buscado)){ res=true; }
+        }while(res==false);
+        dos.setText(""+CUADRO[contadorf2][contadorc2].getName());
+    }
+    public void actualizarPosicionJugador1(int x){
+        for(int i=0;i<x;i++){
+            pos1();
+        }
+    }
+    public void actualizarPosicionJugador2(int x){
+        for(int i=0;i<x;i++){
+                pos2();
+        }
+    }
+    public void pos2(){
+        if(contadorf2==0 || contadorf2==2 ||contadorf2==4 || contadorf2==6){
+                if(contadorc2==7){
+                    contadorf2++;
+                }else{contadorc2++;}
+            }else if(contadorf2==1 || contadorf2==3 ||contadorf2==5 || contadorf2==7){
+                if(contadorc2==0){
+                    contadorf2++;
+                }else{contadorc2--;}
+            }
+    }
+    public void pos1(){
+        if(contadorf==0 || contadorf==2 ||contadorf==4 || contadorf==6){
+            if(contadorc==7){
+                contadorf++;
+            }else{contadorc++;}
+        }else if(contadorf==1 || contadorf==3 ||contadorf==5 || contadorf==7){
+            if(contadorc==0){
+                contadorf++;
+            }else{contadorc--;}
+        }
+    }
     public void verificar(int contadorfila,int contadorcolumna,Color color){
         if(contadorfila==0 || contadorfila==2 ||contadorfila==4 || contadorfila==6){
             CUADRO[contadorfila][contadorcolumna].setBackground(color);
@@ -222,6 +392,29 @@ public class JuegoPrincipal extends javax.swing.JFrame {
             CUADRO[contadorfila][contadorcolumna].setBackground(color);
         }
     }
+    
+    public void recuperarColor(){
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                if(juego[i][j].equals("fin")){
+                    CUADRO[i][j].setBackground(Color.red);
+                }else if(juego[i][j].equals("libre")){
+                    CUADRO[i][j].setBackground(Color.green);
+                }else if(juego[i][j].equals("tiro")){
+                    CUADRO[i][j].setBackground(Color.white);
+                }else if(juego[i][j].equals("pierde")){
+                    CUADRO[i][j].setBackground(Color.black);
+                }else if(juego[i][j].equals("s4inicio")||juego[i][j].equals("s3inicio")||juego[i][j].equals("s2inicio")||juego[i][j].equals("s1inicio")||juego[i][j].equals("s4fin")||juego[i][j].equals("s3fin")||juego[i][j].equals("s2fin")||juego[i][j].equals("s1fin")){
+                    CUADRO[i][j].setBackground(Color.blue);
+                }else if(juego[i][j].equals("inicio")){
+                    CUADRO[i][j].setBackground(Color.yellow);
+                }else{
+                    CUADRO[i][j].setBackground(Color.cyan);
+                }
+            }
+        }
+    }
+    
     
     /**
      * @param args the command line arguments
