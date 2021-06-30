@@ -32,6 +32,12 @@ public class SeleccionarJugador extends javax.swing.JFrame {
         jugador[2]=new Jugador(3,dato.nombre3,dato.apellido3);
         jugador[3]=new Jugador(4,dato.nombre4,dato.apellido4);
     }
+    public static int j1;
+    public static int j2;
+    public static int g1;
+    public static int g2;
+    public static int p1;
+    public static int p2;
 
     /**
      * This method is called from within the constructor to initialize the form.
