@@ -34,7 +34,22 @@ public class JuegoPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         txtjugador1.setText("Turno del primer Jugador");
         txtjugador2.setText("Turno del segundo Jugador");
-        
+        setLeer();
+    }
+    private void setLeer(){
+        File archivo =new File ("posicion.txt");
+        LeerArchivo nc=new LeerArchivo();
+        String[] arreglo=nc.leer(archivo);
+        int x=0;
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                juego[i][j]=arreglo[x];
+                x++;
+            /*if(arreglo[i].equals("fin")){
+            System.out.println(arreglo[i]);}
+                */
+            }
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
