@@ -164,7 +164,10 @@ public class SeleccionarJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDadosActionPerformed
 
     private void btnIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarJuegoActionPerformed
-        
+        g1=jugador[j1-1].getPartidasGanadas();
+        g2=jugador[j2-1].getPartidasGanadas();
+        p1=jugador[j2-1].getPartidasPerdidas();
+        p2=jugador[j2-1].getPartidasPerdidas();
         
         JuegoPrincipal inicio=new JuegoPrincipal();
         inicio.setVisible(true);
