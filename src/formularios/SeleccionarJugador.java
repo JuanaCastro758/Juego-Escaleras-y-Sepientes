@@ -148,11 +148,19 @@ public class SeleccionarJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarInfoActionPerformed
-        
+        listar.addElement(jugador[0].toString());
+        listar.addElement(jugador[1].toString());
+        listar.addElement(jugador[2].toString());
+        listar.addElement(jugador[3].toString());
     }//GEN-LAST:event_btnMostrarInfoActionPerformed
 
     private void btnDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDadosActionPerformed
-        
+        do{
+        j1=jugador1.getDado(1,4);
+        j2=jugador1.getDado(1,4);
+        }while(j1==j2);
+        txtprimero.setText(""+j1);
+        txtsegundo.setText(""+j2);
     }//GEN-LAST:event_btnDadosActionPerformed
 
     private void btnIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarJuegoActionPerformed
