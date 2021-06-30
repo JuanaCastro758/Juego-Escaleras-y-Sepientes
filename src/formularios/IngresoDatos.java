@@ -168,6 +168,14 @@ public class IngresoDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnombre1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        nombre1=txtnombre1.getText();
+        nombre2=txtnombre2.getText();
+        nombre3=txtnombre3.getText();
+        nombre4=txtnombre4.getText();
+        apellido1=txtapellido1.getText();
+        apellido2=txtapellido2.getText();
+        apellido3=txtapellido3.getText();
+        apellido4=txtapellido4.getText();
         
         SeleccionarJugador seleccionJugador=new SeleccionarJugador();
         seleccionJugador.setVisible(true);
