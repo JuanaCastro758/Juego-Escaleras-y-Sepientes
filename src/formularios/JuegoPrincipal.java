@@ -208,7 +208,25 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     int colu=7;
     int s=0;
     private void btnDado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDado1ActionPerformed
-       
+       try{
+        setMatriz();
+        int x=jugador.getDado(1, 6);
+        txtResultado1.setText(" "+x);
+        int pos=0;
+        for(int i=fi;i>=0;i--){
+            if(i==7){
+                for(int j=colu;j>=0;j--){
+                    if(pos==x){
+                            CUADRO[i][j].setBackground(Color.PINK);
+                    }        
+                    pos++;
+                }
+            }
+            
+        }
+       }catch(Exception e){
+           System.out.println(e.getMessage()+" btnDado1 JuegoPrincipal");
+       }
     }//GEN-LAST:event_btnDado1ActionPerformed
 
     private void txtjugador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtjugador1ActionPerformed
